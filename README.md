@@ -15,8 +15,8 @@ This project implements a basic authentication system using email and password, 
 - Clean Architecture
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/your-username/project-name.git`
-2. Navigate to the project directory: `cd project-name`
+1. Clone the repository: `git clone https://github.com/Mrbushido19/flutter_authentication_with_Supabase.git`
+2. Navigate to the project directory: `cd flutter_authentication_with_Supabase`
 3. Install dependencies: `flutter pub get`
 4. Run the application: `flutter run`
 
