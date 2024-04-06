@@ -1,7 +1,7 @@
 import 'package:auth_supabase/core/error/exceptions.dart';
 import 'package:auth_supabase/core/error/failure.dart';
 import 'package:auth_supabase/features/auth/data/data_sources/auth_remote_data_source.dart';
-import 'package:auth_supabase/features/auth/domain/entities/user.dart';
+import 'package:auth_supabase/core/common/entities/user.dart';
 import 'package:auth_supabase/features/auth/domain/repositories/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 
@@ -29,6 +29,19 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final user = await _remoteDataSource.signUpWithEmailAndPassword(
           email: email, name: name, password: password);
+      return right(user);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, User>> currentUser() async {
+    try {
+      final user = await _remoteDataSource.getCurrentUser();
+      if (user == null) {
+        return left(Failure("User is null"));
+      }
       return right(user);
     } on ServerException catch (e) {
       return left(Failure(e.message));

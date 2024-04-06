@@ -1,6 +1,6 @@
 import 'package:auth_supabase/core/error/failure.dart';
 import 'package:auth_supabase/core/use_cases/use_case.dart';
-import 'package:auth_supabase/features/auth/domain/entities/user.dart';
+import 'package:auth_supabase/core/common/entities/user.dart';
 import 'package:auth_supabase/features/auth/domain/repositories/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 
