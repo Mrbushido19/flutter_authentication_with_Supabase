@@ -3,12 +3,17 @@ import 'package:flutter/material.dart';
 class AuthFormField extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
+  final bool isObscure;
   const AuthFormField(
-      {super.key, required this.labelText, required this.controller});
+      {super.key,
+      required this.labelText,
+      required this.controller,
+      required this.isObscure});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: isObscure,
       controller: controller,
       validator: (value) {
         if (value!.isEmpty) {

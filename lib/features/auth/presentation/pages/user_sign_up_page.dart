@@ -74,6 +74,7 @@ class _UserSignUpPageState extends State<UserSignUpPage> {
                         height: 30,
                       ),
                       AuthFormField(
+                        isObscure: false,
                         controller: _nameController,
                         labelText: "Name",
                       ),
@@ -81,6 +82,7 @@ class _UserSignUpPageState extends State<UserSignUpPage> {
                         height: 15,
                       ),
                       AuthFormField(
+                        isObscure: false,
                         controller: _emailController,
                         labelText: "Email",
                       ),
@@ -88,6 +90,7 @@ class _UserSignUpPageState extends State<UserSignUpPage> {
                         height: 15,
                       ),
                       AuthFormField(
+                        isObscure: true,
                         controller: _passwordController,
                         labelText: "Password",
                       ),
