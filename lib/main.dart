@@ -39,17 +39,16 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BlocSelector<AuthBloc, AuthState, bool>(
-        selector: (state) {
-          return state is AppWideUserLogged;
-        },
-        builder: (context, isLogged) {
-          if (isLogged) {
-            return const Scaffold(
-              body: Center(child: Text("welcome ")),
+      home: BlocBuilder<AppWideUserCubit, AppWideUserState>(
+        builder: (context, state) {
+          if (state is AppWideUserLogged) {
+            final user = state.user;
+            return Scaffold(
+              body: Center(child: Text("Welcome, ${user.name}")),
             );
+          } else {
+            return UserLogInPage(); // Page de connexion de l'utilisateur
           }
-          return const UserLogInPage();
         },
       ),
     );
